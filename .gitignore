@@ -1,0 +1,3 @@
+# Project exclude paths
+/gateway/target/
+/user-server/target/

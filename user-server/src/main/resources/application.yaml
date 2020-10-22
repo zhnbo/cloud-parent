@@ -1,0 +1,17 @@
+server:
+  # 端口号
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        # 开启所有 WEB 端点暴露
+        include: "*"
+spring:
+  application:
+    # 服务名称
+    name: user-server
+  cloud:
+    nacos:
+      # Nacos 地址
+      server-addr: 49.235.75.117:8848

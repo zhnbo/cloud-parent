@@ -1,0 +1,31 @@
+server:
+  # 端口号
+  port: 80
+management:
+  endpoints:
+    web:
+      exposure:
+        # 开启所有 WEB 端点暴露
+        include: "*"
+spring:
+  application:
+    # 服务名称
+    name: gateway
+  cloud:
+    nacos:
+      # Nacos 地址
+      server-addr: 49.235.75.117:8848
+    gateway:
+      discovery:
+        locator:
+          # 开启根据服务名动态获取路由地址
+          enabled: true
+      # 路由配置
+      routes:
+        # 路由唯一标识
+        - id: user_route
+          # lb 表明后台服务转发使用负载均衡 lb://服务名
+          uri: lb://user-server
+          # 访问路径
+          predicates:
+            - Path=/user/**
